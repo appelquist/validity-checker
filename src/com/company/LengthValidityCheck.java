@@ -1,8 +1,8 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Class to validate that a CandidateNumber has correct length.
+ */
 public class LengthValidityCheck implements ValidityCheck{
     private String message;
     private boolean isValid;

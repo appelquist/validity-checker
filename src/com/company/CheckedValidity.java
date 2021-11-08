@@ -3,6 +3,10 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to check swedish identity numbers.
+ * Results will be saved to messages attribute.
+ */
 public class CheckedValidity {
     private List<ValidityCheck> validityChecks = new ArrayList<ValidityCheck>();
     private List<String> messages = new ArrayList<String>();
@@ -11,6 +15,11 @@ public class CheckedValidity {
         validityChecks.add(validityCheck);
     }
 
+    /**
+     * Will iterate through all ValidityCheck's and perform them on the provided CandidateNumber.
+     * Results for the provided CandidateNumber will be saved to the List messages.
+     * @param number
+     */
     public void check(CandidateNumber number) {
         if (number == null) {
             messages.add("No number provided");
@@ -33,6 +42,10 @@ public class CheckedValidity {
         }
     }
 
+    /**
+     * Will iterate through all provided numbers and run checks on them.
+     * @param numbers
+     */
     public void check(List<CandidateNumber> numbers) {
         if (numbers.isEmpty()) {
             System.err.println("Empty list provided");

@@ -4,6 +4,9 @@ import java.time.LocalDate;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * Class used to validate date or middle pair number of a CandidateData object.
+ */
 public class DateValidityCheck implements ValidityCheck {
     private LocalDate date;
     private LocalDate toDay = LocalDate.now();

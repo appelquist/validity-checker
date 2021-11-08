@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ * Class used to validate check digit of a CandidateData object.
+ */
 public class CheckDigitValidityCheck implements ValidityCheck {
     private String message = "Has incorrect check number";
     private boolean isValid;

@@ -1,8 +1,8 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Class used to validate that a CandidateNumber object only contains digits.
+ */
 public class DigitsValidityCheck implements ValidityCheck {
     private String message;
     private boolean isValid;
@@ -21,10 +21,7 @@ public class DigitsValidityCheck implements ValidityCheck {
     }
     @Override
     public void check(Samordningsnummer number) {
-        if (number == null) {
-            message = "Is null";
-            isValid = false;
-        } else if (!number.getFormatedContent().matches("[0-9]+")) {
+        if (!number.getFormatedContent().matches("[0-9]+")) {
             message = "Contains letters or special characters";
             isValid = false;
         } else {
