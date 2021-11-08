@@ -4,19 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LengthValidityCheck implements ValidityCheck{
-    private String message = "Incorrect length";
+    private String message;
+    private boolean isValid;
     @Override
-    public boolean check(String input) {
-        String personnummer = input;
-        personnummer.trim();
-        personnummer.replace("-", "");
-        if (personnummer.length() == 10) {
-            personnummer = "19" + personnummer;
+    public void check(Personnummer number) {
+        if (number.getFormatedContent().length() == 10 | number.getFormatedContent().length() == 12) {
+            isValid = true;
+        } else {
+            message = "Incorrect length";
+            isValid = false;
         }
-        if (personnummer.length() != 12) {
-            return false;
+    }
+
+    @Override
+    public void check(Samordningsnummer number) {
+        if (number.getFormatedContent().length() == 10 | number.getFormatedContent().length() == 12) {
+            isValid = true;
+        } else {
+            message = "Incorrect length";
+            isValid = false;
         }
-        return true;
+    }
+
+    @Override
+    public void check(Organisationsnummer number) {
+        if (number.getFormatedContent().length() == 10 | number.getFormatedContent().length() == 12) {
+            isValid = true;
+        } else {
+            message = "Incorrect length";
+            isValid = false;
+        }
+    }
+
+    @Override
+    public boolean passed() {
+        return this.isValid;
     }
 
     @Override

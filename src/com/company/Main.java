@@ -6,22 +6,25 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> personnummer = new ArrayList<String>();
+        List<CandidateNumber> candidateNumbers = new ArrayList<CandidateNumber>();
 
         //valid
-        personnummer.add("141206-2380");
-        personnummer.add("20080903-2386");
-        personnummer.add("7101169295");
-        personnummer.add("189912299816");
-        personnummer.add("900118+9811");
+        candidateNumbers.add(new Personnummer("141206-2380"));
+        candidateNumbers.add(new Personnummer("20080903-2386"));
+        candidateNumbers.add(new Personnummer("7101169295"));
+        candidateNumbers.add(new Personnummer("189912299816"));
+        candidateNumbers.add(new Personnummer("900118+9811"));
+        candidateNumbers.add(new Samordningsnummer("190910799824"));
+        candidateNumbers.add(new Organisationsnummer("556614-3185"));
 
         //invalid
-        personnummer.add("201701272394");
-        personnummer.add("190302299812");
-        personnummer.add("93071240344");
-        personnummer.add("93072240a4");
-
-        List<String> formated = Formated.format(personnummer);
+        candidateNumbers.add(new Personnummer("201701272394"));
+        candidateNumbers.add(new Personnummer("190302299812"));
+        candidateNumbers.add(new Personnummer("93071240344"));
+        candidateNumbers.add(new Personnummer("93072240a4"));
+        candidateNumbers.add(new Samordningsnummer("091092-9824"));
+        candidateNumbers.add(new Organisationsnummer("551914-3185"));
+        candidateNumbers.add(new Personnummer(""));
 
         CheckedValidity checked = new CheckedValidity();
         checked.addValidityCheck(new LengthValidityCheck());
@@ -29,9 +32,7 @@ public class Main {
         checked.addValidityCheck(new DateValidityCheck());
         checked.addValidityCheck(new CheckDigitValidityCheck());
 
-        checked.check(formated);
+        checked.check(candidateNumbers);
         List<String> messages = checked.getMessages();
-
-
     }
 }

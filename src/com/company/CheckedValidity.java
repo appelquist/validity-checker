@@ -11,29 +11,34 @@ public class CheckedValidity {
         validityChecks.add(validityCheck);
     }
 
-    public void check(String personnummer) {
-        boolean isValid = false;
-        String message = personnummer;
-        for (int i = 0; i < validityChecks.size(); i++) {
-            isValid = validityChecks.get(i).check(personnummer);
-            if (!isValid) {
-                message += " : failed | message: " + validityChecks.get(i).getValidityCheckMessage();
-                messages.add(message);
-                break;
+    public void check(CandidateNumber number) {
+        if (number == null) {
+            messages.add("No number provided");
+        } else {
+            boolean isValid = false;
+            String message = number.getOriginalContent();
+            for (int i = 0; i < validityChecks.size(); i++) {
+                number.check(validityChecks.get(i));
+                isValid = validityChecks.get(i).passed();
+                if (!isValid) {
+                    message += " : failed | message: " + validityChecks.get(i).getValidityCheckMessage();
+                    messages.add(message);
+                    break;
+                }
             }
-        }
-        if (isValid) {
-            message += ": valid";
-            messages.add(message);
+            if (isValid) {
+                message += ": valid";
+                messages.add(message);
+            }
         }
     }
 
-    public void check(List<String> personnummer) {
-        if (personnummer.isEmpty()) {
+    public void check(List<CandidateNumber> numbers) {
+        if (numbers.isEmpty()) {
             System.err.println("Empty list provided");
         } else {
-            for (int i = 0; i < personnummer.size(); i++) {
-                check(personnummer.get(i));
+            for (int i = 0; i < numbers.size(); i++) {
+                check(numbers.get(i));
             }
         }
     }

@@ -1,6 +1,9 @@
 package com.company;
 
 public interface ValidityCheck {
-    public boolean check(String personnummer);
-    public String getValidityCheckMessage();
+    void check(Personnummer number);
+    void check(Samordningsnummer number);
+    void check(Organisationsnummer number);
+    boolean passed();
+    String getValidityCheckMessage();
 }

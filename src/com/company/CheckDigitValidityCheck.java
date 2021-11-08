@@ -4,20 +4,48 @@ import com.sun.jdi.CharType;
 
 public class CheckDigitValidityCheck implements ValidityCheck {
     private String message = "Has incorrect check number";
+    private boolean isValid;
     @Override
-    public boolean check(String personnummer) {
-        return luhn(personnummer) == 0;
+    public void check(Personnummer number) {
+        if (luhn(number.getFormatedContent()) == 0) {
+            isValid = true;
+        } else {
+            isValid = false;
+        }
     }
 
-    private int luhn(String personnummer) {
-        if (personnummer.length() == 12) {
-            personnummer = personnummer.substring(2);
+    @Override
+    public void check(Samordningsnummer number) {
+        if (luhn(number.getFormatedContent()) == 0) {
+            isValid = true;
+        } else {
+            isValid = false;
+        }
+    }
+
+    @Override
+    public void check(Organisationsnummer number) {
+        if (luhn(number.getFormatedContent()) == 0) {
+            isValid = true;
+        } else {
+            isValid = false;
+        }
+    }
+
+    @Override
+    public boolean passed() {
+        return this.isValid;
+    }
+
+    private int luhn(String number) {
+        if (number.length() == 12) {
+            number = number.substring(2);
         }
         int temp;
         int sum = 0;
 
         for (int i = 0; i < 10; i++) {
-            temp = Character.getNumericValue(personnummer.charAt(i));
+            temp = Character.getNumericValue(number.charAt(i));
             temp *= 2 - (i % 2);
             if (temp > 9) {
                 temp -= 9;
