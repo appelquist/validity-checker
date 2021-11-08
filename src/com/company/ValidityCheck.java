@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.List;
-
-public interface IValidityCheck {
+public interface ValidityCheck {
     public boolean check(String personnummer);
     public String getValidityCheckMessage();
 }

@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LengthValidityCheck implements IValidityCheck{
+public class LengthValidityCheck implements ValidityCheck{
     private String message = "Incorrect length";
     @Override
     public boolean check(String input) {

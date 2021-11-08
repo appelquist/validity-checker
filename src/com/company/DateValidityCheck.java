@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import static java.lang.Integer.parseInt;
 
-public class DateValidityCheck implements IValidityCheck {
+public class DateValidityCheck implements ValidityCheck {
     private LocalDate date;
     private LocalDate toDay = LocalDate.now();
     private String message;

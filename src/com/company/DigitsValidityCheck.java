@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DigitsValidityCheck implements IValidityCheck {
+public class DigitsValidityCheck implements ValidityCheck {
     private String message = "Contains letters or special characters";
 
     @Override

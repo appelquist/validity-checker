@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckedValidity {
-    private List<IValidityCheck> validityChecks = new ArrayList<IValidityCheck>();
+    private List<ValidityCheck> validityChecks = new ArrayList<ValidityCheck>();
     private List<String> messages = new ArrayList<String>();
 
-    public void addValidityCheck(IValidityCheck validityCheck) {
+    public void addValidityCheck(ValidityCheck validityCheck) {
         validityChecks.add(validityCheck);
     }
 

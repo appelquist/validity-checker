@@ -2,7 +2,7 @@ package com.company;
 
 import com.sun.jdi.CharType;
 
-public class CheckDigitValidityCheck implements IValidityCheck {
+public class CheckDigitValidityCheck implements ValidityCheck {
     private String message = "Has incorrect check number";
     @Override
     public boolean check(String personnummer) {
