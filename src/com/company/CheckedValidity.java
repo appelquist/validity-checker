@@ -46,4 +46,11 @@ public class CheckedValidity {
     public List<String> getMessages() {
         return this.messages;
     }
+
+    public void printResult() {
+        System.out.println("Checks finished, results below:");
+        for (int i = 0; i < messages.size(); i++) {
+            System.out.println(messages.get(i));
+        }
+    }
 }

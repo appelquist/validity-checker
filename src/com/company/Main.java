@@ -33,6 +33,7 @@ public class Main {
         checked.addValidityCheck(new CheckDigitValidityCheck());
 
         checked.check(candidateNumbers);
+        checked.printResult();
         List<String> messages = checked.getMessages();
     }
 }
