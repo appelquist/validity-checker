@@ -25,12 +25,13 @@ public class CheckedValidity {
             messages.add("No number provided");
         } else {
             boolean isValid = false;
-            String message = number.getOriginalContent();
+            String message = number.getClass().getSimpleName() + ": " + number.getOriginalContent();
             for (int i = 0; i < validityChecks.size(); i++) {
-                number.check(validityChecks.get(i));
-                isValid = validityChecks.get(i).passed();
+                ValidityCheck validityCheck = validityChecks.get(i);
+                number.check(validityCheck);
+                isValid = validityCheck.passed();
                 if (!isValid) {
-                    message += " : failed | message: " + validityChecks.get(i).getValidityCheckMessage();
+                    message += " : failed | message: " + validityCheck.getValidityCheckMessage();
                     messages.add(message);
                     break;
                 }
