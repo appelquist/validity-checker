@@ -1,0 +1,11 @@
+com/company/Main.class
+com/company/CheckDigitValidityCheck.class
+com/company/Samordningsnummer.class
+com/company/Organisationsnummer.class
+com/company/CheckedValidity.class
+com/company/DateValidityCheck.class
+com/company/ValidityCheck.class
+com/company/DigitsValidityCheck.class
+com/company/Personnummer.class
+com/company/LengthValidityCheck.class
+com/company/CandidateNumber.class
