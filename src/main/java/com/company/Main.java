@@ -16,6 +16,9 @@ public class Main {
         candidateNumbers.add(new Personnummer("900118+9811"));
         candidateNumbers.add(new Samordningsnummer("190910799824"));
         candidateNumbers.add(new Organisationsnummer("556614-3185"));
+        candidateNumbers.add(new Organisationsnummer("16556601-6399"));
+        candidateNumbers.add(new Organisationsnummer("262000-1111"));
+        candidateNumbers.add(new Organisationsnummer("857202-7566"));
 
         //invalid
         candidateNumbers.add(new Personnummer("201701272394"));
@@ -34,6 +37,5 @@ public class Main {
 
         checked.check(candidateNumbers);
         checked.printResult();
-        List<String> messages = checked.getMessages();
     }
 }
